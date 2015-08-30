@@ -454,6 +454,25 @@ namespace videocore { namespace simpleApi {
     return self;
 }
 
+// added by mparoni
+- (instancetype) initWithVideoSize:(CGSize)videoSize
+						 frameRate:(int)fps
+						   bitrate:(int)bps
+		   useInterfaceOrientation:(BOOL)useInterfaceOrientation
+				 microphoneDisabled:(BOOL)microphoneDisabled
+{
+	if (( self = [super init] ))
+	{
+		self.microphoneDisabled = microphoneDisabled;
+		[self initInternalWithVideoSize:videoSize
+							  frameRate:fps
+								bitrate:bps
+				useInterfaceOrientation:useInterfaceOrientation
+							cameraState:VCCameraStateBack];
+	}
+	return self;
+}
+
 
 
 - (void) initInternalWithVideoSize:(CGSize)videoSize
@@ -782,6 +801,7 @@ namespace videocore { namespace simpleApi {
             }
         });
     }
+    if(!self.microphoneDisabled)  // added by mparoni
     {
         // Add mic source
         m_micSource = std::make_shared<videocore::iOS::MicSource>(self.audioSampleRate, self.audioChannelCount);
