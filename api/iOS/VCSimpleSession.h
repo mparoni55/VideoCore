@@ -152,5 +152,16 @@ typedef NS_ENUM(NSInteger, VCFilter) {
 
 - (void) addPixelBufferSource: (UIImage*) image
                      withRect: (CGRect) rect;
+                     
+                     
+ //------  added by mparoni
+@property (nonatomic, assign) BOOL			microphoneDisabled;
+- (CVPixelBufferRef)getLastSamplePixelBufferCaptured;
+
+- (instancetype) initWithVideoSize:(CGSize)videoSize
+						 frameRate:(int)fps
+						   bitrate:(int)bps
+		   useInterfaceOrientation:(BOOL)useInterfaceOrientation
+				microphoneDisabled:(BOOL)microphoneDisabled;
 
 @end
