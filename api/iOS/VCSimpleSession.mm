@@ -468,7 +468,8 @@ namespace videocore { namespace simpleApi {
 							  frameRate:fps
 								bitrate:bps
 				useInterfaceOrientation:useInterfaceOrientation
-							cameraState:VCCameraStateBack];
+							cameraState:VCCameraStateBack
+							 aspectMode:VCAspectModeFit];
 	}
 	return self;
 }
