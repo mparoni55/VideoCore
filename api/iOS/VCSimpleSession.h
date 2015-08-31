@@ -156,8 +156,6 @@ typedef NS_ENUM(NSInteger, VCFilter) {
                      
  //------  added by mparoni
 @property (nonatomic, assign) BOOL			microphoneDisabled;
-- (CVPixelBufferRef)getLastSamplePixelBufferCaptured;
-
 - (instancetype) initWithVideoSize:(CGSize)videoSize
 						 frameRate:(int)fps
 						   bitrate:(int)bps
